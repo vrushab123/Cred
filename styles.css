@@ -1,0 +1,734 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-color: #000000;
+    /* Dark background */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 50px;
+    /* Adjusted padding */
+    background-color: transparent;
+    /* No background color */
+    position: relative;
+    /* For overlay positioning */
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+.menu-items {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-items li {
+    margin: 20px 0;
+}
+
+.menu-items a {
+    text-decoration: none;
+    font-size: 24px;
+    color: white;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+    .menu-overlay {
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100%;
+        transition: left 0.5s ease-in-out;
+    }
+
+    .menu-open {
+        left: 0;
+    }
+
+    .close-button {
+        display: none;
+    }
+}
+
+/* When menu is open */
+.menu-open {
+    top: 0;
+    /* left: 0; */
+}
+
+.close-button {
+    position: absolute;
+    top: 50px;
+    /* Position it at the top */
+    right: 50px;
+    /* Align to the right */
+    font-size: 30px;
+    /* Make it larger */
+    color: white;
+    /* Color the icon */
+    cursor: pointer;
+    /* Show it's clickable */
+}
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1e;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-video {
+    position: absolute;
+    /* Position it absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Maintain aspect ratio */
+    min-height: 100%;
+    /* Ensure it covers the hero section */
+    object-fit: cover;
+    min-width: 100%;
+    /* Ensure it covers the hero section */
+    transform: translate(-50%, -50%);
+    /* Center the video */
+    z-index: 1;
+    /* Send it to the back */
+    opacity: 1;
+    /* Low opacity */
+    /* filter: brightness(0.5); */
+    /* Darker appearance */
+    animation: slow-motion 10s linear infinite;
+    /* Slow down the playback */
+    border-image: fill 0 linear-gradient(#0001, #111);
+}
+
+.video-container {
+    /* position: relative;
+    overflow: hidden; */
+    border: 10px solid transparent;
+    /* Adjust the border size */
+    border-image: linear-gradient(#0001, #111) 1;
+    /* Gradient border */
+}
+
+/* Slow Motion Keyframes */
+@keyframes slow-motion {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.01);
+    }
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 5em;
+    color: #fff;
+    margin-top: -3em;
+    font-weight: bolder;
+}
+
+.hero-content p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.cta-btn {
+    background-color: #001f3f;
+    /* Navy Blue */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #50b3a2;
+    /* Light blue hover */
+}
+
+/* Scroll Effect Section */
+.scroll-effect {
+    height: 100vh;
+    /* Full height for scrolling effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    /* Align items to the top */
+    align-items: center;
+    /* Center vertically */
+    /* padding-top: 20vh; */
+    /* Add top padding to move the text down */
+    background-color: #000000;
+    text-align: center;
+    padding: 20px;
+    /* Dark background */
+}
+
+.scroll-text {
+    font-size: 4em;
+    /* Font size for desktop */
+    color: rgba(255, 255, 255, 0.3);
+    /* Initial dark color (transparent white) */
+    text-align: center;
+    /* Centered text */
+    transition: color 3s ease;
+    /* Extended transition duration for color change */
+    margin-top: 40px;
+}
+
+/* When the text is visible */
+.scroll-effect.visible .scroll-text {
+    color: white;
+    /* Final color on scroll */
+}
+
+.scroll-item {
+    display: inline-block;
+    position: relative;
+    max-width: 80%;
+    color: rgb(54, 54, 54);
+    /* Dim color */
+    transition: color 0.3s ease;
+    position: relative;
+    /* Transition for glowing effect */
+    margin: 30px 0;
+    /* Adjust spacing */
+    font-size: 2.5rem;
+    /* Adjust as needed */
+    font-family: "Playfair Display", serif;
+}
+
+.scroll-item:hover {
+    color: #fff;
+    /* Bright color when hovered */
+}
+
+.scroll-item::after {
+    content: '';
+    /* Empty content for the glow */
+    position: absolute;
+    /* Position relative to the text */
+    top: 50%;
+    /* Center it vertically */
+    left: 50%;
+    /* Center it horizontally */
+    width: 20px;
+    /* Radius of the glow */
+    height: 20px;
+    /* Radius of the glow */
+    border-radius: 50%;
+    /* Circular glow */
+    background: rgba(255, 255, 255, 0.5);
+    /* Glow color */
+    transform: translate(-50%, -50%);
+    /* Center the glow */
+    pointer-events: none;
+    /* Prevent interference with cursor */
+    opacity: 0;
+    /* Start hidden */
+    transition: opacity 0.3s ease;
+    /* Smooth appearance */
+}
+
+/* Hide cursor initially, we will only show it in the scroll-effect section */
+.cursor,
+.cursor-follower {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.1s ease;
+    z-index: 1000;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    /* Initially hidden */
+}
+
+.cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+}
+
+.cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+}
+
+/* Gooey effect */
+/* .scroll-effect .cursor,
+.scroll-effect .cursor-follower {
+    opacity: 1;
+     Show cursor only in the scroll-effect section 
+} */
+
+/* CSS for Ripple Effect */
+.ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(17, 0, 253, 0.329);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: rippleEffect 3s linear;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(6);
+        opacity: 0;
+    }
+}
+
+/* Style for the video section */
+.video-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+    /* background-color: #000000; */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.background-video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    opacity: 1;
+    /* Slightly darken the video */
+    /* filter: brightness(0.5); */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Darker background for contrast */
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.heading-text h3 {
+    font-size: 6.5rem;
+    margin: 10px 0;
+    font-family: "Playfair Display", serif;
+    color: white;
+}
+
+.normal-text p {
+    color: rgb(102, 102, 102);
+    font-size: 2rem;
+    line-height: 1.5;
+    font-family: 'Poppins', serif;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+/* General section styling */
+.custom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    height: auto;
+    position: relative;
+}
+
+/* Adding glowing borders */
+.custom-section:before,
+.custom-section:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 5px;
+    /* Border thickness */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+    padding: 0 7.5em;
+}
+
+.custom-section:before {
+    top: 0;
+    /* Top glow */
+}
+
+.custom-section:after {
+    bottom: 0;
+    /* Bottom glow */
+}
+
+/* Left content styling */
+.left-content {
+    flex: 1;
+}
+
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #020091, 0 0 20px #020091, 0 0 25px #020091, 0 0 30px #020091;
+    }
+
+    50% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #020091, 0 0 30px #020091, 0 0 40px #020091;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #020091, 0 0 15px #020091, 0 0 20px #020091, 0 0 25px #020091, 0 0 30px #020091;
+    }
+}
+
+.left-content h2 {
+    font-size: 4.3rem;
+    color: #fff;
+    animation: glow 2s ease-in-out infinite;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-family: "Playfair Display", serif;
+}
+
+.left-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.404);
+}
+
+/* Right content (card wrapper) */
+.right-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-wrapper {
+    width: 500px;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front img,
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Rotate the card on hover for desktop */
+.card-wrapper:hover .card {
+    transform: rotateY(180deg);
+}
+
+/* Media queries for mobile screens */
+@media (max-width: 768px) {
+    .custom-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .right-content {
+        margin-top: 20px;
+    }
+}
+
+/*Carousel Posts*/
+
+.carousel-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    /* background-color: #f9f9f9; */
+    text-align: center;
+    position: relative;
+    /* Ensure carousel buttons are confined here */
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+/* Swiper Container */
+.swiper-container {
+    width: 100%;
+    position: relative;
+    /* Relative position to keep buttons within the container */
+    overflow: hidden;
+    margin-top: 2em;
+}
+
+/* Swiper Slides */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Swiper Images */
+.swiper-slide img {
+    width: 80%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons - Ensure they stay within carousel */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* Background color for visibility */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.swiper-button-prev {
+    left: 10px;
+    /* Position on the left side */
+}
+
+.swiper-button-next {
+    right: 10px;
+    /* Position on the right side */
+}
+
+/* Add hover effect on buttons */
+/* .swiper-button-next:hover,
+.swiper-button-prev:hover {
+     background-color: rgba(0, 0, 0, 0.8); 
+} */
+
+/* Pagination Bullets Styling */
+.swiper-pagination-bullet-active {
+    background: #007bff;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background-color: #001f3f;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Mobile First Approach */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-video {
+        opacity: 1;
+        /* Adjusted opacity for mobile */
+    }
+
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .scroll-text {
+        font-size: 2.5em;
+        /* Adjusted font size for mobile */
+    }
+
+    .scroll-item {
+        max-width: 85%;
+        font-size: 1.2rem;
+        margin: 15px 0;
+    }
+
+    * {
+        cursor: none !important;
+        /* Completely hide the static cursor on mobile */
+    }
+
+    /* Hide the gooey cursor on mobile */
+    .cursor,
+    .cursor-follower {
+        display: none !important;
+        /* No cursor effect on mobile */
+    }
+
+    /* Ensure the ripple effect is well-positioned and responsive */
+    .ripple {
+        position: absolute;
+        width: 80px;
+        /* Adjust ripple size for mobile */
+        height: 80px;
+        background: rgba(17, 0, 253, 0.329);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: scale(0);
+        animation: rippleEffect 0.6s ease-out;
+    }
+
+    /* video-section*/
+    .text-container {
+        padding: 15px;
+    }
+
+    .heading-text h3 {
+        font-size: 2.5rem;
+    }
+
+    .normal-text p {
+        font-size: 1.5rem;
+    }
+
+    .custom-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-content,
+    .right-content {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .right-content {
+        margin-top: 20px;
+        /* Space between the left and right on mobile */
+    }
+
+    .left-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .left-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Carousel section */
+    .swiper-slide img {
+        width: 100%;
+        max-width: 400px;
+    }
+}
