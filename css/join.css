@@ -1,0 +1,390 @@
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        /* Start above the screen */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* End at the original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        /* Start off-screen to the left */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* End at the original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        /* Start off-screen to the right */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    100% {
+        transform: translateX(0);
+        /* End at the original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(-100px);
+        /* Start 50px above */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* End at original position */
+        opacity: 1;
+        /* Fully visible */
+    }
+}
+
+.html {
+    scroll-behavior: smooth;
+}
+
+.join-section {
+    position: relative;
+    /* Needed for positioning the pseudo-element */
+    height: 100vh;
+    /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-bottom: 50px;
+    /* Space at the bottom */
+    z-index: 1;
+    /* Keep the content above the background layer */
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
+    /* Shadow from the bottom */
+}
+
+.join-section::before {
+    content: '';
+    /* Required for pseudo-elements */
+    position: absolute;
+    /* Positioning it absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Cover the whole section */
+    background-image: url('../earth.jpg');
+    /* Your background image */
+    background-size: cover;
+    /* Make the background cover the whole area */
+    background-position: center;
+    /* Center the background image */
+    /* opacity: 0.4; */
+    filter: blur(13px);
+    /* Adjust opacity for desired effect */
+    z-index: 0;
+    /* Send the background layer behind */
+    animation: slideIn 2s linear forwards;
+}
+
+.join-content {
+    position: relative;
+    /* Position relative to the overlay */
+    font-size: 2.5rem;
+    /* Large font size for the title */
+    font-weight: bold;
+    /* Make title bold */
+    z-index: 2;
+    /* Place text above the overlay */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+    /* Add shadow for visibility */
+    margin-top: 0em;
+    font-family: "Poppins", serif;
+    z-index: 2;
+    /* Ensure content is above the shadow */
+    /* animation: slideIn 3s linear Forwards; */
+}
+
+.join-content h1 {
+    font-size: 6rem;
+    /* Adjust size as needed */
+    background: linear-gradient(to top, #2e31ff, #3d1fff, #ffffff);
+    /* Gradient colors */
+    -webkit-background-clip: text;
+    /* Clip background to text */
+    -webkit-text-fill-color: transparent;
+    /* Makes the text hollow */
+
+    /* Increased diagonal shadow */
+    position: relative;
+    /* Positioning for possible further adjustments */
+    z-index: 1;
+    /* Ensure the text is above the background */
+    font-family: "Poppins", serif;
+    animation: slideInLeft 3s ease-out forwards;
+}
+
+.tagline {
+    margin: 20px 0;
+    /* Spacing for the tagline */
+    animation: slideInRight 3s ease-out forwards;
+}
+
+.second-join-section {
+    background-color: #000;
+    /* Black background */
+    color: #fff;
+    /* White text */
+    padding: 50px 20px;
+    /* Spacing around the section */
+    text-align: center;
+    /* Center the text */
+    height: 100vh;
+    min-height: 65vh;
+    /* Full viewport height */
+    display: flex;
+    /* Flexbox to center content */
+    flex-direction: column;
+    /* Column direction */
+    justify-content: center;
+    /* Center vertically */
+    position: relative;
+    /* Required for animation */
+    box-shadow: 0 -80px 90px 80px rgba(0, 0, 0, 0.8);
+    /* Top shadow */
+    z-index: 2;
+}
+
+.second-join-content {
+    display: flex;
+    /* Use flexbox for alignment */
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: flex-start;
+    /* Align to top */
+    height: auto;
+    /* Make the section full height for better scrolling */
+    opacity: 0;
+    animation: slideInUp 5s linear forwards;
+}
+
+.second-join-content h2 {
+    font-size: 4rem;
+    margin: 40px 0;
+    /* Top and bottom margin of 20px */
+    color: #ffffff;
+    /* Set text color */
+    text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.6);
+}
+
+.community {
+    color: #2200ff;
+}
+
+.second-join-content p {
+    text-align: center;
+    /* Center the text */
+    margin: 20px;
+    /* Optional: for more spacing */
+    color: #fff;
+    /* Set text color */
+    max-width: 800px;
+    /* Optional: set a max width */
+    font-size: 2rem;
+}
+
+button.join {
+    padding: 10px 20px;
+    width: 200px;
+    /* Reduce the width of the button */
+    background-color: #0000FF;
+    /* Change to your preferred color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px auto;
+    /* Center the button */
+    display: block;
+    /* Ensure it's treated as a block element for centering */
+    font-size: 20px;
+}
+
+button.join:hover {
+    background-color: #000080;
+    /* Darker blue on hover */
+}
+
+.third-join-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 50px;
+    /* Hide any overflow */
+    /* will-change: transform; */
+    /* background: linear-gradient(40deg, #3f0092, #000000); */
+    /* z-index: 2; */
+    box-shadow: 0 -80px 90px 80px rgba(0, 0, 0, 0.8);
+}
+
+
+.join-background-image {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    /* Keep original size */
+    max-height: auto;
+    /* Ensures image fits within the section */
+    z-index: -1;
+    /* Ensures it's behind the video */
+    object-fit: cover;
+}
+
+video {
+    transition: opacity 0.3s ease-out;
+    will-change: transform;
+}
+
+.cursor-image {
+    position: relative;
+    width: 600px;
+    /* Adjust the image size */
+    height: 600px;
+    /* Start centered vertically */
+    /* transform: translate(-50%, -50%); */
+    transition: transform 0.1s ease;
+    /* Smooth movement for the effect */
+    pointer-events: none;
+    /* Avoid interaction issues with the image */
+    z-index: 10;
+}
+
+.below-image-text {
+    margin-top: 0px;
+    /* Adds space between the image and the text */
+    max-width: 65%;
+    /* To ensure text doesn't stretch too wide */
+}
+
+.below-Heading {
+    color: #0000FF;
+    font-size: 80px;
+    /* Adjust the size of the heading */
+    margin-bottom: 10px;
+    /* Adds space below the heading */
+}
+
+.below-p {
+    font-size: 30px;
+    /* Adjust the font size of the paragraph */
+    line-height: 1.5;
+    /* Makes the paragraph more readable */
+}
+
+@media (max-width: 768px) {
+    .below-Heading {
+        font-size: 45px;
+        /* Smaller heading on mobile */
+    }
+
+    .below-p {
+        font-size: 25px;
+        /* Smaller paragraph text */
+    }
+
+    .below-image-text {
+        padding: 0 20px;
+        /* Increase padding for better readability on smaller screens */
+    }
+
+    .cursor-image {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .below-Heading {
+        font-size: 39px;
+        /* Further reduction for small screens */
+    }
+
+    .below-p {
+        font-size: 20px;
+        /* Further reduction for small screens */
+    }
+
+    .below-image-text {
+        padding: 0 15px;
+        /* Adjust padding for small screens */
+    }
+
+    .cursor-image {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .join-section {
+        padding: 30px 10px;
+        /* Adjust padding for mobile */
+    }
+
+    .join-content {
+        font-size: 1.5rem;
+    }
+
+    .join-content h1 {
+        font-size: 4rem;
+    }
+
+    .second-join-section {
+        padding: 30px 10px;
+        /* Adjust padding for mobile */
+    }
+
+    .second-join-content h2 {
+        font-size: 1.5rem;
+        /* Smaller heading on mobile */
+    }
+
+    .second-join-content p {
+        font-size: 1rem;
+        /* Smaller text on mobile */
+    }
+}

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalist Cool UI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/join.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <!-- OR -->
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -37,10 +38,10 @@
     <div class="menu-overlay">
         <div class="close-button" onclick="toggleMenu()">✖</div>
         <ul class="menu-items">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="join.html">Join Us</a></li>
         </ul>
     </div>
     <section class="hero">
@@ -52,14 +53,14 @@
             <div class="border-overlay"></div>
         </div>
         <div class="hero-content">
-            <h1>Manage Your Finances Effortlessly</h1>
+            <h1>Manage Your <span class="finances">Finances</span> Effortlessly</h1>
             <p>Simple, secure, and rewarding experiences for managing your credit.</p>
-            <button class="cta-btn">Get Started</button>
+            <!-- <button class="cta-btn">Get Started</button> -->
         </div>
     </section>
 
-    <section class="scroll-effect">
-        <h2 class="scroll-text">Your Bold Statement Here</h2>
+    <section class="scroll-effect" id="about">
+        <h2 class="scroll-text">ABOUT</h2>
         <p class="scroll-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem porro</p>
         <p class="scroll-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem porro ytert erter
             dhgdfgh</p>
@@ -90,27 +91,30 @@
                 <h3>Your Heading Here</h3>
             </div>
             <div class="normal-text">
-                <p>Your normal text goes here. This can be a paragraph with some additional information or description.
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum deleniti facere commodi porro
+                    cupiditate delectus quia natus laudantium consequuntur nobis, minus harum! Non voluptatem alias
+                    veniam dolorem corrupti totam iste, velit fugit facilis ad?
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="custom-section">
+    <section class="custom-section" id="services">
         <div class="left-content">
-            <h2>CLICK HERE</h2>
-            <p>Your normal text goes here. You can add as many paragraphs as needed.</p>
+            <h2> SURPRISE</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias maxime eaque atque assumenda numquam fuga
+                nesciunt. Rerum, officiis?</p>
         </div>
         <div class="right-content">
             <div class="card-wrapper">
                 <div class="card">
                     <div class="card-front">
                         <!-- Front Image (dummy image) -->
-                        <img src="placeholder.jpg" alt="Front Image" />
+                        <img src="assets/FRONT.png" alt="Front Image" />
                     </div>
                     <div class="card-back">
                         <!-- Back Image (dummy image) -->
-                        <img src="placeholder.jpg" alt="Back Image" />
+                        <img src="assets/BACK.png" alt="Back Image" />
                     </div>
                 </div>
             </div>
@@ -118,7 +122,7 @@
     </section>
 
     <section class="carousel-section">
-        <h2>Carousel of Posts</h2>
+        <h2>Services We Offer</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
@@ -148,12 +152,55 @@
 
 
 
-    <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Your Company</h3>
+                <p>123 Main Street, City Name, Country</p>
+                <p>Email: <a href="mailto:contact@yourcompany.com">contact@yourcompany.com</a></p>
+                <p>Phone: +123-456-7890</p>
+                <p>&copy; 2024 Your Company. All rights reserved.</p>
+            </div>
+
+            <div class="footer-right">
+                <h3>Contact Us</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
     </footer>
 
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="javascript/script.js"></script>
+    <script>
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
+
+
 
 </body>
 

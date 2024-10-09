@@ -176,7 +176,7 @@ var swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,          // Show one slide at a time
     spaceBetween: 30,          // Space between slides
     autoplay: {
-        delay: 2000,           // Slides move every 2 seconds
+        delay: 1000,           // Slides move every 2 seconds
         disableOnInteraction: false, // Autoplay won't stop on user interaction
     },
     speed: 1000,               // Slide transition speed (1 second)
